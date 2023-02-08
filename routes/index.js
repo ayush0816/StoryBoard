@@ -3,12 +3,12 @@ const router = express.Router();
 
 // login
 router.get("/", (req, res) => {
-  res.send("login");
+  res.render("login");
 });
 
 //dashboard
 router.get("/dashboard", (req, res) => {
-  res.send("Dashboard");
+  res.render("dashboard");
 });
 
 module.exports = router;
