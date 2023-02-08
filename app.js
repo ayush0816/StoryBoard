@@ -1,9 +1,11 @@
 const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 const morgan = require("morgan");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const connectDB = require("./config/db");
 const passport = require("passport");
 
@@ -25,6 +27,9 @@ app.use(
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: "mongodb://127.0.0.1:27017/test",
+    }),
   })
 );
 
